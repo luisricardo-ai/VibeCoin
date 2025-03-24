@@ -34,3 +34,4 @@ def generate_access_token() -> str:
 
 if __name__ == "__main__":
     access_token = generate_access_token()
+    print("Access token generated!")
