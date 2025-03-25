@@ -6,7 +6,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import pytest
 from unittest.mock import MagicMock
 
-from app.main import generate_access_token 
+from app.utlis.spotify_token import generate_access_token 
 
 def test_generate_access_token_success(mocker):
     mock_response = MagicMock()
