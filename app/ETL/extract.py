@@ -33,7 +33,8 @@ def playlist(playlist_id: str, access_token: str):
 
     if response.status_code == 200:
         with open(f"{folder}/spotify_playlist.json", "w", encoding="utf-8") as json_file:
-            json.dump(response.json(), json_file, indent=4)
+            content = {"results": response.json()}
+            json.dump(content, json_file, indent=4)
 
     else:
         raise Exception(f"Error {response.status_code} while requesting 'get' from API. {response.content}")
