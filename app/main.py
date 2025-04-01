@@ -5,7 +5,8 @@ from pathlib import Path
 from utlis.spotify_token import generate_access_token
 
 # ETL imports
-import ETL.extract
+import ETL.extract as extract
+import ETL.transform as transform
 
 dotenv_path = Path('./.env')
 load_dotenv(dotenv_path=dotenv_path)
@@ -15,7 +16,11 @@ if __name__ == "__main__":
     access_token = generate_access_token()
     print("Access token generated!")
 
-    ETL.extract.playlist(
+    extract.playlist(
         playlist_id=playlist_id,
         access_token=access_token
     )
+    print("Playlist data extract!")
+
+    transform.playlist(path="././data/input/spotify_playlist.json")
+    print("Playlist transformed!")
