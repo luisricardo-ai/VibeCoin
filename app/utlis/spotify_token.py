@@ -24,4 +24,6 @@ def generate_access_token() -> str:
     if not access_token:
         raise Exception("Error while generating the access token: access_token missing.")
     
+    print("Access token generated!")
+
     return access_token
