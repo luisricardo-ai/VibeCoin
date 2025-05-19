@@ -1,26 +1,22 @@
 from dotenv import load_dotenv
 from pathlib import Path
+import pandas as pd
 
 # Token
 from utlis.spotify_token import generate_access_token
-
-# ETL imports
-import ETL.extract as extract
-import ETL.transform as transform
+from ETL.spotify_extract import main
 
 dotenv_path = Path('./.env')
 load_dotenv(dotenv_path=dotenv_path)
 
 if __name__ == "__main__":
-    playlist_id = "5FN6Ego7eLX6zHuCMovIR2"
+    df = pd.read_csv("./charts.csv", nrows=10000)
+    df = df[
+        (df['region'] == 'Global') 
+        & (df['date'] == '2017-01-01') # REMOVE
+        & (df['rank'] == 1) # REMOVE
+    ]
+
     access_token = generate_access_token()
-    print("Access token generated!")
 
-    extract.playlist(
-        playlist_id=playlist_id,
-        access_token=access_token
-    )
-    print("Playlist data extract!")
-
-    transform.playlist(path="././data/input/spotify_playlist.json")
-    print("Playlist transformed!")
+    main(df, access_token)
