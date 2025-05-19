@@ -3,7 +3,7 @@ from pathlib import Path
 import pandas as pd
 
 # Token
-from utlis.spotify_token import generate_access_token
+from utlis.spotify import token
 from ETL.spotify_extract import main
 
 dotenv_path = Path('./.env')
@@ -17,6 +17,4 @@ if __name__ == "__main__":
         & (df['rank'] == 1) # REMOVE
     ]
 
-    access_token = generate_access_token()
-
-    main(df, access_token)
+    main(df=df, access_token=token())
