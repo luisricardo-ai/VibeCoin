@@ -177,3 +177,6 @@ pyrightconfig.json
 
 # Removing `data` folder
 data/
+
+# Removing `charts.csv`
+charts.csv
