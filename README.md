@@ -1,7 +1,17 @@
 # VibeCoin
 VibeCoin is a data engineering project that explores the correlation between Spotify’s Top 50 Global songs and Bitcoin price fluctuations. By analyzing music sentiment and market trends, it aims to uncover potential connections between global vibes and crypto volatility.
 
+## About
+For this project we will use the [Spotify Charts](https://www.kaggle.com/datasets/dhruvildave/spotify-charts) dataset, that contains the top daily hits for some regions. After that we are going to use the [Spotify API](https://developer.spotify.com/documentation/web-api) to get some informations about the tracks.
+
 ## Prerequisites
+
+### API key
+Make sure to have keys for
+
+* [Spotify Web API](https://developer.spotify.com/documentation/web-api)
+
+### Enviroment Management
 To run VibeCoin, ensure you have the following installed:
 
 * [Pyenv](https://github.com/pyenv/pyenv)
