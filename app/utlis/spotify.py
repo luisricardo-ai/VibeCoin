@@ -1,13 +1,14 @@
 import requests
 import os
 
-def generate_access_token() -> str:
+def token() -> str:
     """
     Function to generate the Spotify's access token
 
     Returns:
         str: The access token.
     """
+
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
     data = {
         "grant_type": "client_credentials",
