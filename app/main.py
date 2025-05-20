@@ -4,17 +4,16 @@ import pandas as pd
 
 # Token
 from utlis.spotify import token
-from ETL.spotify_extract import main
+from ETL.spotify_extract import extract
 
 dotenv_path = Path('./.env')
 load_dotenv(dotenv_path=dotenv_path)
 
 if __name__ == "__main__":
-    df = pd.read_csv("./charts.csv", nrows=10000)
+    df = pd.read_csv("./charts.csv")
     df = df[
-        (df['region'] == 'Global') 
-        & (df['date'] == '2017-01-01') # REMOVE
-        & (df['rank'] == 1) # REMOVE
+        (df['region'] == 'Global')
+        & (df['rank'] == 1)
     ]
-
-    main(df=df, access_token=token())
+    
+    extract(df, access_token=token())
