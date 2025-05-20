@@ -24,3 +24,16 @@ def get_track_id(df: pd.DataFrame, access_token:str):
             url=f"https://api.spotify.com/v1/search?type=track&query={row}",
         )
 
+
+def extract(df, access_token):
+    """"
+    Function to extract data from Spotify WEB API
+
+    Args:
+        df (pd.DataFrame): Dataset with daily top hits
+        access_token (str): Spotify token
+    """
+    
+    df_distinct_songs = df.groupby(['title', 'artist']).size().reset_index()
+
+    get_track_id(df=df_distinct_songs, access_token=access_token)
