@@ -2,9 +2,13 @@ import pandas as pd
 import requests
 import urllib.parse
 
-def main(df: pd.DataFrame, access_token:str):
+def get_track_id(df: pd.DataFrame, access_token:str):
     """
     Function to get song details
+
+    Args:
+        df (pd.DataFrame): Dataset with daily top hits
+        access_token (str): Spotify token
     """
 
     header = {
@@ -20,4 +24,3 @@ def main(df: pd.DataFrame, access_token:str):
             url=f"https://api.spotify.com/v1/search?type=track&query={row}",
         )
 
-        print(content.text)
