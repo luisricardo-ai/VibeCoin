@@ -15,5 +15,7 @@ if __name__ == "__main__":
         (df['region'] == 'Global')
         & (df['rank'] == 1)
     ]
-    
-    extract(df, access_token=token())
+
+    spotify_token = token()
+
+    extract(df, access_token=spotify_token)
